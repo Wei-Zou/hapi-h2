@@ -23,3 +23,11 @@ node h1-server.js
 ```
 node h2-server.js
 ```
+
+## Endpoints
+
+#### /hello
+return 'world'
+
+#### /tiles
+render image in 200 tiles.
