@@ -1,7 +1,9 @@
 'use strict';
 
 const Hapi = require("hapi");
-const inert = require('inert');
+const vision = require('vision');
+
+const { setupTemplates } = require('./templates/setup-templates');
 
 const server = Hapi.server({
   port: 3000,
@@ -9,7 +11,8 @@ const server = Hapi.server({
 });
 
 const init = async () => {
-  await server.register(inert);
+  await server.register(vision);
+  setupTemplates(server);
 
   server.route({
     method: 'GET',
@@ -21,12 +24,10 @@ const init = async () => {
 
   server.route({
     method: 'GET',
-    path: '/tiles/{param*}',
+    path: '/tiles',
     config: {
-      handler: {
-        directory: {
-          path: './images',
-        },
+      handler: async (request, h) => {
+        return h.view('index');
       },
     },
   });
