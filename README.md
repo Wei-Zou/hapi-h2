@@ -14,7 +14,7 @@ npm i
 npm run build
 ```
 
-#### run http1 in http://localhost:3000/
+#### run http1 in http://localhost:3000
 ```
 node h1-server.js
 ```
