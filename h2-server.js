@@ -31,7 +31,7 @@ const init = async () => {
     method: 'GET',
     path: '/hello',
     handler: (request, h) => {
-      return 'world/n';
+      return 'world';
     },
   });
 
